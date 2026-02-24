@@ -40,6 +40,14 @@
         </div>
 
         <div class="setting-group">
+            <label>Alarm Volume (<span id="volume-label">300%</span>)</label>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <input type="range" id="volume-slider" min="0" max="300" value="300" class="volume-slider">
+                <button id="test-alarm-btn" class="btn outline-btn" style="padding: 4px 8px; font-size: 0.8rem; width: 60px;">Test</button>
+            </div>
+        </div>
+
+        <div class="setting-group">
             <label>Accent Color</label>
             <div class="color-options" id="color-picker">
                 <button class="color-btn" data-color="#ffffff" style="background: #ffffff;"></button>
@@ -84,6 +92,7 @@
                 <div class="pomo-controls">
                     <button id="pomo-start" class="btn primary-btn">Start</button>
                     <button id="pomo-reset" class="btn text-btn">Reset</button>
+                    <button id="stop-alarm-btn" class="btn danger-btn" style="display: none;">Stop Alarm</button>
                 </div>
             </div>
 
