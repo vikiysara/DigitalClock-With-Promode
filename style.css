@@ -21,7 +21,6 @@
 
 body {
     background-color: var(--bg-color);
-    /* Ambient Glow + Faint Structural Grid */
     background-image: 
         radial-gradient(circle at 15% 0%, rgba(30, 58, 138, 0.25), transparent 40%),
         radial-gradient(circle at 85% 100%, rgba(88, 28, 135, 0.2), transparent 40%),
@@ -36,6 +35,36 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+}
+
+/* --- Alarm Animations --- */
+body.alarm-active {
+    animation: alarmPulse 0.8s infinite alternate;
+}
+
+body.alarm-active .time {
+    animation: shake 0.4s infinite;
+    color: #f43f5e; 
+    text-shadow: 0 0 30px rgba(244, 63, 94, 0.8);
+}
+
+@keyframes alarmPulse {
+    0% { box-shadow: inset 0 0 0px rgba(244, 63, 94, 0); }
+    100% { box-shadow: inset 0 0 80px rgba(244, 63, 94, 0.3); }
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 /* Top Controls */
@@ -65,6 +94,7 @@ body {
 .btn:active { transform: scale(0.97); }
 .outline-btn { background: var(--card-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid var(--border); color: var(--text-main); }
 .primary-btn { background: var(--accent); color: #000; font-weight: 700; }
+.danger-btn { background: #f43f5e !important; color: #fff !important; font-weight: 700; }
 .text-btn { background: transparent; color: var(--text-muted); }
 .text-btn:hover { color: var(--text-main); }
 
@@ -138,6 +168,7 @@ body {
 .input-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px; }
 .time-input { width: 100%; padding: 10px 4px; background: rgba(0,0,0,0.5); color: var(--text-main); border: 1px solid var(--border); border-radius: 8px; outline: none; text-align: center; font-size: 1rem; }
 .time-input::-webkit-outer-spin-button, .time-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.volume-slider { width: 100%; cursor: pointer; accent-color: var(--accent); margin-top: 5px; }
 
 /* Pomodoro */
 .pomo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
