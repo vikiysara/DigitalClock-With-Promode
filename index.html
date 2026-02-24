@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Focus Clock | By Suriya</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="controls-top">
+        <button id="settings-toggle" class="icon-btn" title="Settings">⚙️</button>
+        <button id="zen-toggle" class="icon-btn" title="Fullscreen">⛶</button>
+    </div>
+
+    <div class="settings-overlay" id="settings-overlay"></div>
+
+    <div class="settings-panel" id="settings-panel">
+        <div class="settings-header">
+            <h3>Workspace Settings</h3>
+            <button id="close-settings" class="text-btn">✕</button>
+        </div>
+        
+        <div class="setting-group">
+            <label>Timer Durations (Minutes)</label>
+            <div class="timer-inputs">
+                <div class="input-col">
+                    <span class="input-label">Focus</span>
+                    <input type="number" id="focus-input" min="1" max="120" class="time-input">
+                </div>
+                <div class="input-col">
+                    <span class="input-label">Short</span>
+                    <input type="number" id="short-input" min="1" max="60" class="time-input">
+                </div>
+                <div class="input-col">
+                    <span class="input-label">Long</span>
+                    <input type="number" id="long-input" min="1" max="60" class="time-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="setting-group">
+            <label>Accent Color</label>
+            <div class="color-options" id="color-picker">
+                <button class="color-btn" data-color="#ffffff" style="background: #ffffff;"></button>
+                <button class="color-btn" data-color="#3b82f6" style="background: #3b82f6;"></button>
+                <button class="color-btn" data-color="#10b981" style="background: #10b981;"></button>
+                <button class="color-btn" data-color="#8b5cf6" style="background: #8b5cf6;"></button>
+                <button class="color-btn" data-color="#f43f5e" style="background: #f43f5e;"></button>
+            </div>
+        </div>
+        <div class="setting-group">
+            <label>Typography</label>
+            <select id="font-picker" class="dropdown">
+                <option value="'Inter', sans-serif">Inter (Modern)</option>
+                <option value="'Space Mono', monospace">Space Mono (Coding)</option>
+                <option value="'Playfair Display', serif">Playfair (Classic)</option>
+            </select>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="clock-section">
+            <h1 class="time" id="time-display">00:00:00</h1>
+            <p class="date" id="date-display">Monday, Jan 1</p>
+            <button id="pro-mode-toggle" class="btn outline-btn">Enable Pro Mode</button>
+        </div>
+
+        <div class="pro-section" id="pro-section">
+            <div class="card pomodoro-card">
+                <div class="pomo-header">
+                    <h3>Focus Timer</h3>
+                    <span class="session-count" id="session-count">Sessions: 0</span>
+                </div>
+                
+                <div class="pomo-modes">
+                    <button class="mode-btn active" data-mode="focus">Focus</button>
+                    <button class="mode-btn" data-mode="short">Short Break</button>
+                    <button class="mode-btn" data-mode="long">Long Break</button>
+                </div>
+
+                <div class="pomo-display" id="pomo-time">25:00</div>
+                
+                <div class="pomo-controls">
+                    <button id="pomo-start" class="btn primary-btn">Start</button>
+                    <button id="pomo-reset" class="btn text-btn">Reset</button>
+                </div>
+            </div>
+
+            <div class="card task-card">
+                <h3>Session Tasks</h3>
+                <form id="task-form">
+                    <input type="text" id="task-input" placeholder="What is your focus target?" autocomplete="off">
+                </form>
+                <ul id="task-list" class="task-list"></ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>By Suriya</p>
+    </footer>
+</body>
+</html>
